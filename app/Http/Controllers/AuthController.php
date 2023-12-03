@@ -19,7 +19,6 @@ class AuthController extends Controller
                 'confirmed',
                 Password::min(8)
             ],
-            'isSeller' => false
         ]);
 
         //create user & token if data are correct
@@ -27,13 +26,17 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'isSeller' => $data['isSeller'],
+            'isSeller' => false
         ]);
         $token = $user->createToken('main')->plainTextToken;
 
         return response([
-            'user' => $user,
+            'data' => $user,
             'token' => $token
         ]);
+    }
+
+    public function login(Request $request)
+    {
     }
 }

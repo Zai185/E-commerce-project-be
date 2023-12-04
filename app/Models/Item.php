@@ -12,7 +12,7 @@ class Item extends Model
     use HasFactory;
     use HasSlug;
 
-    protected $fillable = ['name', 'slug',  'price', 'description', 'image_url', 'hasDiscount', 'discount'];
+    protected $fillable = ['name', 'slug',  'price', 'description', 'image', 'hasDiscount', 'discount'];
 
     public function getSlugOptions(): SlugOptions
     {

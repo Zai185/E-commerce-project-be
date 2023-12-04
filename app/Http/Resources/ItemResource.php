@@ -4,6 +4,8 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\URL;
+use PhpParser\Node\Expr\Cast\Bool_;
 
 class ItemResource extends JsonResource
 {
@@ -21,10 +23,11 @@ class ItemResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->returnSubbed($this->name, 17),
+            'image' => URL::to($this->image),
             'slug' => $this->slug,
             'price' => $this->price,
             'description' => $this->description,
-            'hasDiscount' => $this->hasDiscount,
+            'hasDiscount' => $this->hasDiscount === 1,
             'discount' => $this->discount,
         ];
     }

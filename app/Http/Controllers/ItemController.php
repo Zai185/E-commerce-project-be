@@ -48,7 +48,17 @@ class ItemController extends Controller
     public function update(UpdateItemRequest $request, Item $item)
     {
         $data = $request->validated();
-        $item = $item->update($data);
+        if (isset($data['image'])) {
+            $relativePath = $this->saveImage($data['image']);
+            $data['image'] = $relativePath;
+
+            if ($item->image) {
+                $absolutePath = public_path($item->image);
+                File::delete($absolutePath);
+            }
+        }
+
+        $item->update($data);
         return new ItemResource($item);
     }
 

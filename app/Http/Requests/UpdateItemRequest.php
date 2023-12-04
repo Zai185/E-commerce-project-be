@@ -27,7 +27,7 @@ class UpdateItemRequest extends FormRequest
             'description' => 'required|string',
             'image' => 'nullable|string',
             'hasDiscount' => 'required|boolean',
-            'discount' => 'nullable|number',
+            'discount' => 'nullable|integer',
         ];
     }
 }

@@ -24,6 +24,8 @@ class User extends Authenticatable
         'isSeller',
     ];
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that should be hidden for serialization.
      *

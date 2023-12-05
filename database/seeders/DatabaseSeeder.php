@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\Item;
+use App\Models\Cart;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,6 +21,11 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Item::factory(4)->create();
+        // Item::factory(4)->create();
+        Cart::factory()->create([
+            'item_id' => 1,
+            'amount' => 3,
+            'user_id' => 4
+        ]);
     }
 }

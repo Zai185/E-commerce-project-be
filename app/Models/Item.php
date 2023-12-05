@@ -20,4 +20,9 @@ class Item extends Model
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
     }
+
+    public function cart()
+    {
+        return $this->hasMany(Cart::class);
+    }
 }

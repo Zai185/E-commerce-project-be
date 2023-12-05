@@ -45,6 +45,11 @@ return [
             'driver' => 'sanctum',
             'provider' => 'users',
             'hash' => false,
+        ],
+        'seller' => [
+            'driver' => 'sanctum',
+            'provider' => 'sellers',
+            'hash' => false,
         ]
     ],
 
